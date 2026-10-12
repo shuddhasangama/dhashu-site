@@ -69,8 +69,8 @@ window.DHASHU = {
       },
       {
         title: 'How it works',
-        body: 'The weekly rhythm, day by day. When matches arrive, when slots open, when the agreement is signed, and when the debrief closes.',
-        meta: '0:30 · no sound',
+        body: 'The weekly rhythm, day by day — recorded from the app itself. When matches arrive, when slots open, when the agreement is signed, and when the debrief closes.',
+        meta: '0:33 · no sound',
         poster: 'media/calendar-poster.jpg',
         src: 'media/calendar-explainer.mp4',
         wide: true,
@@ -79,7 +79,7 @@ window.DHASHU = {
       },
       {
         title: 'App screens',
-        body: 'A walkthrough of the product itself — vision, stats, REACH, the week, the ceremony and the debrief, screen by screen.',
+        body: 'A walkthrough of the product itself — vision, stats, identity, REACH, the week, a match and Guru, screen by screen from the live app.',
         meta: '1:30 · no sound',
         poster: 'media/app-screens-poster.jpg',
         src: 'media/app-screens.mp4'
