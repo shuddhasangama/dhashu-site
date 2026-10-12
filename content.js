@@ -43,32 +43,53 @@ window.DHASHU = {
     cta: 'Join the waitlist'
   },
 
-  /* ── the two films ───────────────────────────────────────────────────
-     Each item plays inline when `src` points at a video file. Leave `src`
-     empty and the poster becomes a clickable still that opens `href` in a
-     new tab — which is how the DREAM film runs until an MP4 exists.
-     To make the film play inline later: drop the file in media/, set
-     src: 'media/dream-film.mp4', and clear `href`.                      */
+  /* ── the four films ──────────────────────────────────────────────────
+     Each item renders one of three ways, in this order of precedence:
+       embed : 'idea.html'          → played inline in an iframe
+       src   : 'media/thing.mp4'    → played inline in a <video>
+       href  : 'https://…'          → poster still that opens elsewhere
+     Options per item:
+       wide  : true                 → spans the full row (use for anything
+                                      portrait, or long enough to deserve it)
+       fit   : 'contain'            → letterbox instead of crop; required for
+                                      portrait footage or it gets cropped
+       ratio : '3/4' | '16/9'       → frame shape; defaults to 16/9          */
   watch: {
     eyebrow: 'Watch',
-    heading: 'Two minutes is faster than two paragraphs',
-    lede: 'One film for why DhaShu exists, one for how the journey actually works, stage by stage.',
+    heading: 'Four films, start to finish',
+    lede: 'Why DhaShu exists, what happens on which day, what the app actually looks like, and the thirty-five second version.',
     items: [
+      {
+        title: 'The idea',
+        body: 'What is going wrong — the fraud, the loneliness, the apps that profit from you never stopping — and the three-step answer we built instead: match the end goal, verify the facts, then build the chemistry.',
+        meta: '3:04 · plays here',
+        poster: 'media/film-poster.jpg',
+        embed: 'idea.html',
+        wide: true
+      },
+      {
+        title: 'How it works',
+        body: 'The weekly rhythm, day by day. When matches arrive, when slots open, when the agreement is signed, and when the debrief closes.',
+        meta: '0:30 · no sound',
+        poster: 'media/calendar-poster.jpg',
+        src: 'media/calendar-explainer.mp4',
+        wide: true,
+        fit: 'contain',
+        ratio: '3/4'
+      },
+      {
+        title: 'App screens',
+        body: 'A walkthrough of the product itself — vision, stats, REACH, the week, the ceremony and the debrief, screen by screen.',
+        meta: '1:30 · no sound',
+        poster: 'media/app-screens-poster.jpg',
+        src: 'media/app-screens.mp4'
+      },
       {
         title: 'The promo',
         body: 'Thirty-five seconds on why perpetual searching fails, and what replaces it.',
         meta: '0:35 · sound on',
         poster: 'media/promo-poster.jpg',
-        src: 'media/dhashu-promo.mp4',
-        href: ''
-      },
-      {
-        title: 'How the journey works',
-        body: 'The full walkthrough — vision, pillars, verification, the four stages, Guru, and the 169-day route to a wedding.',
-        meta: '3 min · opens in a new tab',
-        poster: 'media/film-poster.jpg',
-        src: '',
-        href: 'https://claude.ai/code/artifact/2cbb8318-e937-48db-aed8-3d28bc6a094e'
+        src: 'media/dhashu-promo.mp4'
       }
     ]
   },

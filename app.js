@@ -73,7 +73,7 @@
   $('seal-caption').innerHTML = (C.hero.seal.caption || []).map(esc).join('<br>');
   $('hero-cta').textContent = C.hero.cta;
 
-  /* ── the two films ────────────────────────────────────────────────── */
+  /* ── the four films ───────────────────────────────────────────────── */
   head($('watch-head'), C.watch);
   $('watch-films').innerHTML = C.watch.items.map(v => {
     const caption =
@@ -83,21 +83,36 @@
          <p class="film-meta">${esc(v.meta)}</p>
        </div>`;
 
-    /* a real file plays here; otherwise the still opens the film elsewhere */
-    const frame = v.src
-      ? `<video class="film-media" controls preload="metadata" playsinline
-                poster="${esc(v.poster)}">
+    /* frame shape is per item; portrait footage must letterbox, not crop */
+    const shape = `aspect-ratio:${esc(v.ratio || '16/9')}`;
+    const fit = v.fit === 'contain' ? ' film-contain' : '';
+
+    /* an embedded page plays here, a file plays here, and an item with
+       only an href falls back to a still that opens elsewhere           */
+    let frame;
+    if (v.embed) {
+      frame = `<iframe class="film-media film-embed" src="${esc(v.embed)}"
+                 style="${shape}" loading="lazy" title="${esc(v.title)}"
+                 allow="autoplay; fullscreen"></iframe>`;
+    } else if (v.src) {
+      /* MP4 first — every mainstream browser takes it. WebM is the fallback
+         for builds shipped without H.264, which do exist in the wild.      */
+      frame = `<video class="film-media${fit}" controls preload="metadata"
+                 playsinline style="${shape}" poster="${esc(v.poster)}">
            <source src="${esc(v.src)}" type="video/mp4">
+           <source src="${esc(v.src.replace(/\.mp4$/, '.webm'))}" type="video/webm">
            Your browser cannot play this video.
-         </video>`
-      : `<a class="film-media film-link" href="${esc(v.href)}"
+         </video>`;
+    } else {
+      frame = `<a class="film-media film-link" href="${esc(v.href)}"
             target="_blank" rel="noopener"
-            style="background-image:url('${esc(v.poster)}')"
+            style="${shape};background-image:url('${esc(v.poster)}')"
             aria-label="Watch ${esc(v.title)} — opens in a new tab">
            <span class="film-play">${icon('play', 'ic-lg')}</span>
          </a>`;
+    }
 
-    return `<div class="film">${frame}${caption}</div>`;
+    return `<div class="film${v.wide ? ' film-wide' : ''}">${frame}${caption}</div>`;
   }).join('');
 
   /* ── arc ──────────────────────────────────────────────────────────── */

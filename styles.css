@@ -378,7 +378,7 @@ footer{ padding-block:40px 52px; border-top:1px solid var(--line); }
 
 @media (prefers-reduced-motion:reduce){ *{ transition:none !important; animation:none !important; } }
 
-/* ── the two films ──────────────────────────────────────────────────── */
+/* ── the four films ─────────────────────────────────────────────────── */
 .films{
   display:grid; gap:28px;
   grid-template-columns:repeat(auto-fit,minmax(320px,1fr));
@@ -393,6 +393,28 @@ footer{ padding-block:40px 52px; border-top:1px solid var(--line); }
   background:var(--wine-deep); border:0;
 }
 video.film-media{ object-fit:cover; }
+
+/* portrait footage letterboxes rather than cropping the subject away */
+video.film-contain{ object-fit:contain; }
+
+/* a full-width portrait frame would run over 1300px tall on a desktop —
+   cap it so the whole card stays on screen, still wide enough to read */
+.film-wide video.film-contain{ max-width:560px; margin:0 auto; }
+
+/* spans the whole row — the lead film, and portrait footage that would be
+   unreadable at a third of the width */
+.film-wide{ grid-column:1/-1; }
+
+/* the embedded film is a live page rather than a still, so it carries its
+   own controls and must never scroll inside its frame */
+.film-embed{ width:100%; border:0; overflow:hidden; }
+
+/* a 3/4 frame is taller than most phones; cap it so the caption stays
+   reachable without a long scroll */
+@media (max-width:640px){
+  .film-wide video.film-contain{ aspect-ratio:1/1 !important; }
+  .film-wide .film-embed{ aspect-ratio:4/3 !important; }
+}
 
 /* the still that opens a film hosted elsewhere */
 .film-link{
