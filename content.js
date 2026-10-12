@@ -57,7 +57,7 @@ window.DHASHU = {
   watch: {
     eyebrow: 'Watch',
     heading: 'Four films, start to finish',
-    lede: 'Why DhaShu exists, what happens on which day, what the app actually looks like, and the thirty-five second version.',
+    lede: 'Why DhaShu exists, what happens on which day, what the app actually looks like, and the promo video.',
     items: [
       {
         title: 'The idea',
@@ -72,10 +72,7 @@ window.DHASHU = {
         body: 'One week, end to end — recorded from the app itself. Reality Check, the three matches, weekend slots, the overlap, the signed agreement, the date, the debrief, and the next cycle.',
         meta: '2:13 · no sound',
         poster: 'media/calendar-poster.jpg',
-        src: 'media/calendar-explainer.mp4',
-        wide: true,
-        fit: 'contain',
-        ratio: '3/4'
+        src: 'media/calendar-explainer.mp4'
       },
       {
         title: 'App screens',
@@ -85,7 +82,7 @@ window.DHASHU = {
         src: 'media/app-screens.mp4'
       },
       {
-        title: 'The promo',
+        title: 'Promo video',
         body: 'Thirty-five seconds on why perpetual searching fails, and what replaces it.',
         meta: '0:35 · sound on',
         poster: 'media/promo-poster.jpg',

@@ -175,12 +175,14 @@ h1,h2,h3{ font-family:'Fraunces',Georgia,serif; font-weight:500; text-wrap:balan
   margin-top:10px; display:block; line-height:1.6;
 }
 .seal-wrap{ flex:0 0 auto; display:flex; flex-direction:column; align-items:center; gap:14px; }
+.hero-logo{ display:block; width:340px; max-width:100%; height:auto; margin-top:4px; }
 .seal-caption{
   margin:0; text-align:center; font-family:'Fraunces',Georgia,serif;
   font-style:italic; font-size:15px; line-height:1.5; color:var(--gold);
   max-width:188px;
 }
 @media (max-width:640px){
+  .hero-logo{ width:250px; }
   .seal{ width:150px; height:150px; }
   .seal-dev{ font-size:32px; }
   .seal-caption{ font-size:14px; max-width:220px; }
@@ -393,6 +395,11 @@ footer{ padding-block:40px 52px; border-top:1px solid var(--line); }
   background:var(--wine-deep); border:0;
 }
 video.film-media{ object-fit:cover; }
+
+/* the three recorded films sit side by side at the same size */
+@media (min-width:900px){
+  .films{ grid-template-columns:repeat(3,minmax(0,1fr)); }
+}
 
 /* portrait footage letterboxes rather than cropping the subject away */
 video.film-contain{ object-fit:contain; }

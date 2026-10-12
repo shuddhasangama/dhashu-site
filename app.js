@@ -68,9 +68,6 @@
   $('hero-tagline').textContent  = C.hero.tagline;
   $('hero-meta').innerHTML = C.hero.meta
     .map(([k, v]) => `<span><b>${esc(k)}</b> ${esc(v)}</span>`).join('');
-  $('seal-dev').textContent = C.hero.seal.devanagari;
-  $('seal-txt').innerHTML   = `${esc(C.hero.seal.line1)}<br>${esc(C.hero.seal.line2)}`;
-  $('seal-caption').innerHTML = (C.hero.seal.caption || []).map(esc).join('<br>');
   $('hero-cta').textContent = C.hero.cta;
 
   /* ── the four films ───────────────────────────────────────────────── */
