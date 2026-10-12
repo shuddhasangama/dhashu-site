@@ -91,9 +91,15 @@
        only an href falls back to a still that opens elsewhere           */
     let frame;
     if (v.embed) {
-      frame = `<iframe class="film-media film-embed" src="${esc(v.embed)}"
-                 style="${shape}" loading="lazy" title="${esc(v.title)}"
-                 allow="autoplay; fullscreen"></iframe>`;
+      /* The embedded film autoplays the moment it loads, so it starts as a
+         still with a play button and is swapped for the live page on click.
+         That also keeps its weight off the page until someone wants it.   */
+      frame = `<button type="button" class="film-media film-link film-cta"
+                 data-embed="${esc(v.embed)}"
+                 style="${shape};background-image:url('${esc(v.poster)}')"
+                 aria-label="Play ${esc(v.title)}">
+           <span class="film-play">${icon('play', 'ic-lg')}</span>
+         </button>`;
     } else if (v.src) {
       /* MP4 first — every mainstream browser takes it. WebM is the fallback
          for builds shipped without H.264, which do exist in the wild.      */
@@ -114,6 +120,20 @@
 
     return `<div class="film${v.wide ? ' film-wide' : ''}">${frame}${caption}</div>`;
   }).join('');
+
+  /* swap the still for the live film only when asked — one listener on the
+     container, so it survives the grid being re-rendered */
+  $('watch-films').addEventListener('click', (e) => {
+    const btn = e.target.closest('[data-embed]');
+    if (!btn) return;
+    const f = document.createElement('iframe');
+    f.className = 'film-media film-embed';
+    f.src = btn.dataset.embed;
+    f.title = btn.getAttribute('aria-label') || '';
+    f.setAttribute('allow', 'autoplay; fullscreen');
+    f.style.aspectRatio = btn.style.aspectRatio || '16/9';
+    btn.replaceWith(f);
+  });
 
   /* ── arc ──────────────────────────────────────────────────────────── */
   head($('arc-head'), C.arc);

@@ -69,8 +69,8 @@ window.DHASHU = {
       },
       {
         title: 'How it works',
-        body: 'The weekly rhythm, day by day — recorded from the app itself. When matches arrive, when slots open, when the agreement is signed, and when the debrief closes.',
-        meta: '0:33 · no sound',
+        body: 'One week, end to end — recorded from the app itself. Reality Check, the three matches, weekend slots, the overlap, the signed agreement, the date, the debrief, and the next cycle.',
+        meta: '2:13 · no sound',
         poster: 'media/calendar-poster.jpg',
         src: 'media/calendar-explainer.mp4',
         wide: true,
