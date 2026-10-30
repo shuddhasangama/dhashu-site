@@ -512,7 +512,7 @@ footer .legal { margin-top: 18px; padding-top: 18px; border-top: 1px solid var(-
                   <button type="button" class="tile" aria-pressed="false"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 7h9M19 7h1M4 17h1M11 17h9"/><circle cx="16" cy="7" r="2.3"/><circle cx="8" cy="17" r="2.3"/></svg>Custom together</button>
                 </div></div></div>
               <div class="st3"><span class="n" aria-hidden="true">2</span><div><b>Stats</b><span class="d">Checked, not claimed.</span>
-                <div class="mini"><em>Name</em><em>Identity</em><em>Age</em><em>Work experience</em><em>Salary band</em><em>Nationality</em></div></div></div>
+                <div class="mini"><em>Name</em><em>Age</em><em>Address</em><em>Employment</em><em>Court cases</em><em>Identity</em></div></div></div>
               <div class="st3"><span class="n" aria-hidden="true">3</span><div><b>Chemistry</b><span class="d">Activities, hobbies and a real date.</span></div></div>
             </div>
           </div>
@@ -534,14 +534,14 @@ footer .legal { margin-top: 18px; padding-top: 18px; border-top: 1px solid var(-
           <div class="pp-copy">
             <span class="kick">Promise 4</span>
             <h3>No free dinners. No one-sided bills.</h3>
-            <p>Every date has a cost and you share it. Pay your own, or split 1/3 and 2/3.</p>
+            <p>Every date has a cost and you share it. Split 50/50, or 1/3 and 2/3.</p>
           </div>
           <div class="pp-proof">
             <div class="opts" role="group" aria-label="How to split the bill" id="splitOpts">
-              <button type="button" class="opt" data-i="0" aria-pressed="true">Pay your own</button>
+              <button type="button" class="opt" data-i="0" aria-pressed="true">50/50</button>
               <button type="button" class="opt" data-i="1" aria-pressed="false">1/3 · 2/3</button>
             </div>
-            <div class="bar" aria-live="polite"><div class="a" id="splitA">Own</div><div class="b" id="splitB">Own</div></div>
+            <div class="bar" aria-live="polite"><div class="a" id="splitA">1/2</div><div class="b" id="splitB">1/2</div></div>
             <div class="bar-legend"><span>One of you</span><span>The other</span></div>
           </div>
         </div>
@@ -775,7 +775,7 @@ footer .legal { margin-top: 18px; padding-top: 18px; border-top: 1px solid var(-
   }
 
   /* §1 verify */
-  var V = ['Name', 'Identity, matched to a live face capture', 'Age', 'Work experience', 'Salary band', 'Nationality'];
+  var V = ['Name', 'Age', 'Address', 'Employment', 'Court cases', 'Identity, matched to a live face capture'];
   var vbox = $('#verify'), vlist = $('#vlist');
   var vnotes = { dhashu: 'Background-verified before anyone sees this profile.', else: 'A bio says whatever someone typed. No one checks it.' };
   function drawV() {
@@ -823,8 +823,8 @@ footer .legal { margin-top: 18px; padding-top: 18px; border-top: 1px solid var(-
   }
   drawC();
 
-  /* §4 split: pay your own, or 1/3 and 2/3 */
-  var SP = [['50%', 'Own', 'Own'], ['33.3%', '1/3', '2/3']];
+  /* §4 split: 50/50, or 1/3 and 2/3 */
+  var SP = [['50%', '1/2', '1/2'], ['33.3%', '1/3', '2/3']];
   $$('#splitOpts .opt').forEach(function (b) {
     b.addEventListener('click', function () {
       var p = SP[+b.dataset.i];

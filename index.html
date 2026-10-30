@@ -7,7 +7,7 @@
 /* One place to configure the story.
    HOME_URL : where Skip and the last scene's button go. The previous home page lives here, unchanged.
    REVEAL   : 'each' shows the DhaShu answer after every pick. 'end' auto-advances after each pick and skips the answer cards.
-   LENGTH   : 'full' runs all 8 scenes. 'short' runs swindler, life-goals and guru only.
+   LENGTH   : 'full' runs all 9 scenes. 'short' runs swindler, one-at-a-time and guru only.
    PHOTOS   : optional scene photos, for example { swindler: 'assets/photos/swindler.webp' }. Empty means the cream fill. */
 window.STORY_CONFIG = { HOME_URL: '/home.html', REVEAL: 'each', LENGTH: 'full', PHOTOS: {} };
 /* Returning visitors who skipped or finished go straight to the home page. /?story=1 always shows the story. */
@@ -42,8 +42,8 @@ window.STORY_CONFIG = { HOME_URL: '/home.html', REVEAL: 'each', LENGTH: 'full', 
   <div class="word">DhaShu</div>
   <div class="top-r">
     <div class="prog" id="prog" hidden>
-      <div class="prog-l" id="prog-l">SCENE 1 / 8</div>
-      <div class="bar" id="prog-bar" role="progressbar" aria-label="Story progress" aria-valuemin="0" aria-valuemax="8" aria-valuenow="1"><i></i></div>
+      <div class="prog-l" id="prog-l">SCENE 1 / 9</div>
+      <div class="bar" id="prog-bar" role="progressbar" aria-label="Story progress" aria-valuemin="0" aria-valuemax="9" aria-valuenow="1"><i></i></div>
     </div>
     <a class="pill" id="skip" href="/home.html">Skip to DhaShu</a>
   </div>

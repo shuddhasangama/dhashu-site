@@ -40,34 +40,26 @@
       source: 'Pune police say one man messaged ' + LINK('https://www.tribuneindia.com/news/diaspora/perth-based-nri-messaged-3000-women-on-matrimonial-site-using-fake-identity/amp', '3,194 women') + ' on a matrimonial site under a fake name. One in five US dating app users admit lying about their age (' + LINK('https://statista.com/statistics/1481187/us-online-dating-users-lying-on-profiles', 'Forbes survey, 2024') + ').',
       question: 'Would you have caught it?',
       options: ['Yes, on the first video call', 'Maybe, once we met', 'Probably not'],
-      head: 'Five things are checked before any profile can match.',
-      list: ['Name', 'Age', 'Address', 'Identity, matched to a live face capture', 'Court cases']
-    },
-    'life-goals': {
-      kicker: 'LIFE GOALS', phone: 'life-goals',
-      story: "Third date. It's going well. Then kids come up. You want two. They want none.",
-      question: 'When should you know you want the same things out of life?',
-      options: ['Before the first date', 'After a few dates', 'Whenever it comes up'],
-      head: 'You both say what you want out of life at sign-up. Kids, living together, travel.',
-      body: 'Each match shows where your life goals line up, before you meet.'
-    },
-    'swindler': {
-      kicker: 'THE SWINDLER', phone: 'swindler',
-      story: "He says he's a diamond heir. Private jet, five-star dinners, all on him. Two weeks later, his cards are blocked.",
-      source: 'This is the con from ' + LINK('https://www.deseret.com/2022/2/3/22916539/tinder-swindler-true-story-simon-leviev-conning-women-for-money-israel-fraud-netflix/', 'The Tinder Swindler') + ' (Netflix, 2022). The film estimates about $10 million was taken. US victims reported $1.14 billion lost to romance scams in 2023 (' + LINK('https://www.ftc.gov/business-guidance/blog/2024/02/love-stinks-when-scammer-involved', 'FTC') + ').',
-      question: 'When would you have noticed?',
-      options: ['At the first big gift', 'When he asked for money', 'Honestly, maybe never'],
-      head: 'No free dinners.',
-      body: 'You both put money toward every date. The big spender who later needs a loan has nothing to build on.',
-      chips: [['Pay your own', 'gold'], ['1/4 and 3/4', 'gold'], ['1/3 and 2/3', 'gold']]
+      head: 'Six things are checked before any profile can match.',
+      list: ['Name', 'Age', 'Address', 'Employment', 'Court cases', 'Identity, matched to a live face capture']
     },
     'two-way': {
       kicker: 'TWO-WAY MATCH', phone: 'two-way',
       story: 'An hour of swiping. Forty profiles fit what you want. Three reply.',
       question: 'What would actually help?',
       options: ['More profiles to choose from', 'Better photos on my profile', "Only people who'd pick me too"],
-      head: 'Filters work both ways. You only see people whose filters you also fit.',
+      head: 'Both sides have to fit.',
+      body: 'At sign-up you both say how you want to live: kids, living together, travel. You only see people who fit you, and whom you fit.',
       chips: [['Who you want', 'rose'], ['Who wants you back', 'good']]
+    },
+    'weekly': {
+      kicker: 'ONE AT A TIME', phone: 'weekly',
+      story: 'Eight chats open. They have eight too. Weeks go by, and nobody picks anyone.',
+      question: 'What would make you actually decide?',
+      options: ['More people to pick from', 'One person at a time, with a deadline', "I'd keep chatting with everyone"],
+      head: 'One match at a time. Up to three a week.',
+      body: 'One match a day, Monday to Wednesday. Each stays open for about a day. Dates are at the weekend.',
+      chips: [['Locked in means not shown to anyone else', 'good'], ['No one fits? We say so', 'gold']]
     },
     'details': {
       kicker: 'YOUR DETAILS, YOUR CALL', phone: 'details',
@@ -78,14 +70,23 @@
       body: 'Your number, your socials, a date invite. Each one arrives as a request. You accept or decline.',
       chips: [['Phone number', 'good'], ['Instagram and socials', 'good'], ['Date invites', 'good']]
     },
+    'swindler': {
+      kicker: 'THE SWINDLER', phone: 'swindler',
+      story: "He says he's a diamond heir. Private jet, five-star dinners, all on him. Two weeks later, his cards are blocked.",
+      source: 'This is the con from ' + LINK('https://www.deseret.com/2022/2/3/22916539/tinder-swindler-true-story-simon-leviev-conning-women-for-money-israel-fraud-netflix/', 'The Tinder Swindler') + ' (Netflix, 2022). The film estimates about $10 million was taken. US victims reported $1.14 billion lost to romance scams in 2023 (' + LINK('https://www.ftc.gov/business-guidance/blog/2024/02/love-stinks-when-scammer-involved', 'FTC') + ').',
+      question: 'When would you have noticed?',
+      options: ['At the first big gift', 'When he asked for money', 'Honestly, maybe never'],
+      head: 'No free dinners. Every date has rules you both sign.',
+      list: ['Both pay: 50/50, or 1/3 and 2/3', 'No asking for money or contact details', 'A public place, and a trusted contact', 'On time, or message first']
+    },
     'ghosting': {
-      kicker: 'GHOSTING', phone: 'ghosting',
+      kicker: 'AFTER THE DATE', phone: 'ghosting',
       story: 'A great first date. You text the next day. Nothing. Three days on, you are still guessing what went wrong.',
       question: 'What would help most?',
       options: ['A short reply, even if it is a no', "Nothing. That's how dating goes", 'To know what they really thought'],
-      head: 'After every date, nobody is left guessing.',
-      body: 'You both say how it went and whether to continue. A pass reaches the other person plainly and kindly. Going silent is flagged.',
-      chips: [['Two green flags', 'good'], ['Continue or pass', 'rose'], ['Silence is flagged', 'gold']]
+      head: 'After every date, you both know where you stand.',
+      body: 'You each say whether to continue. A pass reaches the other person plainly and kindly. Then you both get a private note.',
+      chips: [['Green flags: build confidence', 'good'], ['Red flags: what to work on', 'rose']]
     },
     'both-yes': {
       kicker: 'BOTH SAY YES', phone: 'both-yes',
@@ -95,17 +96,31 @@
       head: 'Nothing moves on one yes. Each stage needs both of you.',
       body: 'Dating, Relationship, Engaged, Married. Each move is saved in an agreement you both sign.'
     },
+    'hard-talks': {
+      kicker: 'HARD TALKS', phone: 'hard-talks',
+      story: 'You have never talked about chores. Kids and money are next. Nobody wants to start.',
+      question: 'When should these come up?',
+      options: ['Before we commit', 'When it becomes a problem', "We'll figure it out as we go"],
+      head: 'Hard topics come as questions, one at a time.',
+      body: 'Each one waits until you are both ready. You answer on your own first, then see where you match.',
+      chips: [['Chores and home', 'line'], ['Money', 'line'], ['Children', 'line'], ['Career', 'line'], ['Emotional and physical intimacy', 'line']]
+    },
     'guru': {
       kicker: 'GURU', phone: 'guru',
       story: 'Same argument again. Money, this time. Neither of you wants to start it.',
       question: 'Who helps?',
       options: ['A friend who knows us both', 'Nobody. We let it go', 'Something neutral, right when it happens'],
       head: 'Guru helps you say it, and helps you hear it.',
-      chips: [['Same argument again', 'line'], ['Skipped date nights', 'line'], ['Awkward money talk', 'line'], ['Feeling stuck', 'line']]
+      moments: [
+        ['Same argument again', 'say it to Guru first. It is shared only if you agree.'],
+        ['Feeling distant', 'emotional and physical intimacy.'],
+        ['Awkward money talk', 'checked against the plan you agreed.'],
+        ['Feeling stuck', 'Guru steps in when you both ask.']
+      ]
     }
   };
-  var FULL = ['pretender', 'life-goals', 'swindler', 'two-way', 'details', 'ghosting', 'both-yes', 'guru'];
-  var SHORT = ['swindler', 'life-goals', 'guru'];
+  var FULL = ['pretender', 'two-way', 'weekly', 'details', 'swindler', 'ghosting', 'both-yes', 'hard-talks', 'guru'];
+  var SHORT = ['swindler', 'weekly', 'guru'];
   function order() { return CFG.LENGTH === 'short' ? SHORT : FULL; }
 
   /* ---------- phone animations ---------- */
@@ -135,13 +150,13 @@
     'pretender': function () {
       return phone('Rohit, 34', 'Lives in Pune',
         '<div class="scan"></div>' +
-        note('CHECKING AGAINST ID', 0.3) +
-        row('NAME', 'Rohit Oberoi', 'NO MATCH', 1.4, 'bad') +
-        row('AGE', '34', 'ID SAYS 42', 1.9, 'bad') +
-        row('ADDRESS', 'Pune', 'OUTSIDE INDIA', 2.4, 'bad') +
-        row('IDENTITY', 'Live face capture', 'NO MATCH', 2.9, 'bad') +
-        row('COURT', 'Declared: none', '1 FOUND', 3.4, 'bad') +
-        banner('Not verified. Can’t match anyone.', 4.5, 'bad'));
+        row('NAME', 'Rohit Oberoi', 'NO MATCH', 1.2, 'bad') +
+        row('AGE', '34', 'ID SAYS 42', 1.6, 'bad') +
+        row('ADDRESS', 'Pune', 'OUTSIDE INDIA', 2.0, 'bad') +
+        row('EMPLOYMENT', 'A Pune IT firm', 'NOT FOUND', 2.4, 'bad') +
+        row('COURT', 'Declared: none', '1 FOUND', 2.8, 'bad') +
+        row('IDENTITY', 'Live face capture', 'NO MATCH', 3.2, 'bad') +
+        banner('Not verified. Can’t match.', 4.3, 'bad'));
     },
     'two-way': function () {
       var cells = 'ADMKSRVNTJPL'.split('').map(function (ch, i) {
@@ -151,7 +166,8 @@
       return phone('Your matches', 'Filtered both ways',
         '<div class="mg">' + cells + '</div>' +
         note('YOU FIT THEIR FILTERS TOO', 2.8) +
-        banner('3 people who’d pick you back', 3.4, 'good'));
+        row('LIFE GOALS', 'Kids · Living · Travel', 'ALIGNED', 3.3, 'good') +
+        banner('3 people who’d pick you back', 4.1, 'good'));
     },
     'details': function () {
       return phone('Arjun', 'Wants to see your details',
@@ -162,22 +178,23 @@
         row('WORKPLACE', 'Request', 'DECLINED', 3.8, 'bad') +
         banner('He sees only what you said yes to', 4.9, 'good'));
     },
-    'ghosting': function () {
-      return phone('Date debrief', 'An hour after your date',
-        note('HOW DID IT GO?', 0.3) +
-        row('GREEN FLAG', 'Actually listened', 'ADDED', 0.8, 'good') +
-        row('GREEN FLAG', 'On time', 'ADDED', 1.5, 'good') +
-        row('YOU', 'Continue', 'SENT', 2.3, 'good') +
-        row('MEERA', 'Pass', 'REPLIED', 3.1, 'mid') +
-        bub(false, 'Lovely evening. It didn’t feel right for me. Thank you.', 3.9) +
-        banner('You know where you stand', 5.0, 'good'));
+    'weekly': function () {
+      return phone('Your week', 'One match at a time',
+        row('MON', 'Match 1 · Neha', 'YES', 0.5, 'good') +
+        row('TUE', 'Match 2 · Dev', 'PASS', 1.3, 'mid') +
+        row('WED', 'Match 3 · Meera', 'YES', 2.1, 'good') +
+        row('THU', 'Date is set with Meera', 'LOCKED IN', 3.1, 'good') +
+        row('FRI TO SUN', 'Date · Sat 7 pm', 'BOOKED', 3.9, 'good') +
+        banner('Three people, then a date', 5.0, 'good'));
     },
-    'life-goals': function () {
-      return phone('You & Meera', 'Life goals, before you meet',
-        row('KIDS', 'Two · None', 'DIFFERS', 0.5, 'bad') +
-        row('LIVING', 'After marriage · After marriage', 'ALIGNED', 1.3, 'good') +
-        row('TRAVEL', 'Every year · Sometimes', 'PARTIAL', 2.1, 'mid') +
-        banner('You knew this before date one', 3.4));
+    'ghosting': function () {
+      return phone('After your date', 'Sunday night',
+        row('YOU', 'Continue', 'SENT', 0.5, 'good') +
+        row('MEERA', 'Pass', 'TOLD KINDLY', 1.3, 'mid') +
+        note('YOUR PRIVATE NOTE', 2.3) +
+        row('GREEN FLAG', 'Listened well', 'BUILD ON IT', 2.9, 'good') +
+        row('RED FLAG', 'Phone out at dinner', 'WORK ON', 3.7, 'bad') +
+        banner('You know where you stand', 4.9, 'good'));
     },
     'both-yes': function () {
       var labels = ['Dating', 'Relationship', 'Engaged', 'Married'];
@@ -189,15 +206,26 @@
         '<div class="tlabels a-in"' + A(0.4) + '>' + labels.map(function (s) { return '<span>' + s + '</span>'; }).join('') + '</div>' +
         banner('Saved to your shared agreement', 4.5, 'good'));
     },
+    'hard-talks': function () {
+      return phone('Chores', 'A question for both of you',
+        bub(false, 'Who does what at home?', 0.4) +
+        row('YOU', 'We take turns', 'ANSWERED', 1.3, 'good') +
+        row('MEERA', 'Taking her time', 'WAITING', 2.1, 'mid') +
+        note('SHOWN ONLY WHEN BOTH ARE READY', 3.0) +
+        banner('No one has to go first', 4.2, 'good'));
+    },
     'guru': function () {
       return phone('Guru', 'Here when you need it',
         bub(true, 'We’re fighting about money again.', 0.5) +
-        bub(false, 'Same one as last month?', 1.5) +
-        bub(true, 'Yes. I don’t even know how it starts.', 2.4) +
-        dots(3.2, 4.0) +
-        bub(false, 'Try this. Say what worries you, in one line. I’ll help them hear it.', 4.1) +
-        note('SUGGESTED', 5.2) +
-        bub(true, 'I’m worried we’re not saving.', 5.6));
+        bub(false, 'Say it to me first. I only share it if you say yes.', 1.6) +
+        '<div class="layer sheet a-in" style="--d:3.8s">' +
+          note('SAMPLE WEEKLY REPORT', 4.0) +
+          row('APPRECIATION', 'Planned around your deadline', 'FROM ARJUN', 4.4, 'good') +
+          row('SORTED', 'Who plans weekend trips', 'DONE', 5.0, 'good') +
+          row('STILL SORTING', 'Weeknight chores', 'NEW', 5.6, 'mid') +
+          row('WHERE YOU DIFFER', 'Weekends: rest or plans', 'TALK', 6.2, 'mid') +
+          banner('Appreciation first. No scores.', 7.0, 'good') +
+        '</div>');
     }
   };
 
@@ -215,13 +243,13 @@
 
   /* ---------- views ---------- */
   function introHTML(n) {
-    var words = { 3: 'THREE', 7: 'SEVEN', 8: 'EIGHT' };
+    var words = { 3: 'THREE', 7: 'SEVEN', 8: 'EIGHT', 9: 'NINE' };
     return '<div class="grid intro">' +
       '<div class="col">' +
         '<div class="kick">DHASHU · ' + (words[n] || n) + ' SHORT SCENES</div>' +
         '<h1 class="hd" id="focus-h" tabindex="-1">Picture the partner you are hoping to meet.</h1>' +
         '<p class="lede">Some are who they say. Some aren\'t. Pick what you\'d do in each scene. Then see what DhaShu does.</p>' +
-        '<div class="row-cta"><button type="button" class="btn" data-begin>Begin</button><span class="time">' + (n === 3 ? 'About a minute' : 'About three minutes') + '</span></div>' +
+        '<div class="row-cta"><button type="button" class="btn" data-begin>Begin</button><span class="time">' + (n === 3 ? 'About a minute' : 'About four minutes') + '</span></div>' +
       '</div>' +
       '<div class="stage hero">' +
         '<div class="kb"><img class="hero-img" src="assets/hero-date.webp" width="1200" height="1800" fetchpriority="high" alt="Two people across a café table, relaxed and clearly interested in each other."></div>' +
@@ -233,6 +261,7 @@
     var h = '<div class="ans"><div class="kick sm">ON DHASHU</div><h3>' + esc(sc.head) + '</h3>';
     if (sc.body) h += '<p>' + esc(sc.body) + '</p>';
     if (sc.list) h += '<ul class="ans-list">' + sc.list.map(function (t) { return '<li><span aria-hidden="true">✓</span> ' + esc(t) + '</li>'; }).join('') + '</ul>';
+    if (sc.moments) h += '<ul class="moments">' + sc.moments.map(function (m) { return '<li><b>' + esc(m[0]) + '</b> ' + esc(m[1]) + '</li>'; }).join('') + '</ul>';
     if (sc.chips) h += '<div class="chips' + (sc.chips.length === 2 ? ' l' : '') + '">' + sc.chips.map(function (c) { return '<div class="c-' + c[1] + '">' + esc(c[0]) + '</div>'; }).join('') + '</div>';
     if (sc.source) h += '<p class="src in-ans">' + sc.source + '</p>';
     h += '<div class="ans-actions">' +
