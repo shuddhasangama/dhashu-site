@@ -924,65 +924,10 @@ footer .legal { margin-top: 18px; padding-top: 18px; border-top: 1px solid var(-
   }
   if (!reduce) whenVisible(word, function () { if (!wTimer) { setTimeout(flip, 700); wTimer = setInterval(flip, 2600); } }, function () { clearInterval(wTimer); wTimer = null; });
 
-  /* sign / waitlist */
-  var SIGNUP_INBOX = 'hello@dhashu.com';
-  // Live only on dhashu.com: signups are emailed to SIGNUP_INBOX. Anywhere else (previews) nothing is sent.
-  var LIVE = /(^|\.)dhashu\.com$/.test(location.hostname);
-  var WAITLIST_ENDPOINT = LIVE ? 'https://formsubmit.co/ajax/' + SIGNUP_INBOX : '';
-  var OPTS = {
-    city: ['Delhi NCR', 'Mumbai', 'Bengaluru', 'Hyderabad', 'Chennai', 'Pune', 'Kolkata', 'Ahmedabad', 'Elsewhere in India', 'Outside India'],
-    gender: ['A woman', 'A man'],
-    age: ['25–29', '30–34', '35–39', '40–44', '45–50', 'Over 50']
-  };
-  $$('.choices').forEach(function (box) {
-    var n = box.dataset.name;
-    OPTS[n].forEach(function (label, i) {
-      var l = document.createElement('label'); l.className = 'choice';
-      l.innerHTML = '<input type="radio" name="' + n + '" id="f-' + n + '-' + i + '" value="' + label + '"><span>' + label + '</span>';
-      box.appendChild(l);
-    });
-  });
-  try { $('#sigDate').textContent = new Date().toLocaleDateString('en-IN', { day: 'numeric', month: 'short', year: 'numeric' }); } catch (e) {}
-  var form = $('#wl'), ink = $('#ink'), status = $('#wlStatus'), btn = $('#wlBtn');
-  $('#f-name').addEventListener('input', function () {
-    var v = this.value.trim();
-    ink.textContent = v || 'Your name';
-    ink.classList.toggle('empty', !v);
-  });
-  form.addEventListener('change', function (e) {
-    var t = e.target;
-    if (t.type === 'radio') { $('#e-' + t.name).hidden = true; if (t.name === 'city') $('#sigCity').textContent = t.value; }
-  });
-  $('#f-email').addEventListener('blur', function () {
-    var v = this.value.trim(), ok = !v || /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(v);
-    $('#e-email').hidden = ok; if (ok) this.removeAttribute('aria-invalid'); else this.setAttribute('aria-invalid', 'true');
-  });
-  form.addEventListener('submit', function (e) {
-    e.preventDefault();
-    var fd = new FormData(form), bad = [];
-    var email = (fd.get('email') || '').trim(), ok = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(email);
-    $('#e-email').hidden = ok; if (ok) $('#f-email').removeAttribute('aria-invalid'); else { $('#f-email').setAttribute('aria-invalid', 'true'); bad.push($('#f-email')); }
-    ['city', 'gender', 'age'].forEach(function (k) { var has = !!fd.get(k); $('#e-' + k).hidden = has; if (!has) bad.push($('#f-' + k + '-0')); });
-    if (bad.length) { status.textContent = bad.length === 1 ? 'One answer needs a fix.' : bad.length + ' answers need a fix.'; bad[0].focus(); return; }
-    status.textContent = '';
-    var name = (fd.get('name') || '').trim(), city = fd.get('city');
-    var done = function (preview) {
-      $('#doneTitle').textContent = "You're on the list" + (name ? ', ' + name : '') + '.';
-      $('#doneSub').textContent = (city === 'Elsewhere in India' || city === 'Outside India') ? "We'll write when DhaShu opens near you." : "We'll write when " + city + ' opens.';
-      $('#previewTag').hidden = !preview;
-      form.hidden = true; $('#done').hidden = false; $('#done').focus();
-    };
-    if (!WAITLIST_ENDPOINT) return done(true);
-    btn.disabled = true; btn.textContent = 'Sending…';
-    fetch(WAITLIST_ENDPOINT, { method: 'POST', headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
-      body: JSON.stringify({ _subject: 'DhaShu waitlist signup', _captcha: 'false', _template: 'table', name: name, email: email, city: city, gender: fd.get('gender'), age_band: fd.get('age'), source: 'dhashu.com home', submitted_at: new Date().toISOString() }) })
-      .then(function (r) { if (!r.ok) throw new Error('HTTP ' + r.status); done(false); })
-      .catch(function () { status.textContent = 'That did not go through. Try again in a moment, or email ' + SIGNUP_INBOX + ' and we will add you by hand.'; })
-      .then(function () { btn.disabled = false; btn.textContent = 'Sign and join the waitlist'; });
-  });
-  $('#back').addEventListener('click', function () { $('#done').hidden = true; form.hidden = false; $('#f-name').focus(); });
+  /* Database-backed waitlist: behaviour is in the external asset. */
 })();
 </script>
 
+<script src="assets/waitlist.js" defer></script>
 </body>
 </html>

@@ -351,6 +351,7 @@
 
   function pick(id, k) {
     S.picks[id] = k;
+    try { sessionStorage.setItem('dhashu_waitlist_answers_v1', JSON.stringify(S.picks)); } catch (e) {}
     track('story_pick', { scene: id, option: k });
     var scene = app.querySelector('[data-scene]');
     if (scene) scene.querySelectorAll('.opt').forEach(function (b) { b.setAttribute('aria-pressed', String(b.getAttribute('data-k') === k)); });
