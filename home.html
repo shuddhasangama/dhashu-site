@@ -384,6 +384,7 @@ footer .legal { margin-top: 18px; padding-top: 18px; border-top: 1px solid var(-
 }
 </style>
 
+<link rel="stylesheet" href="assets/video-player.css">
 </head>
 <body>
 <a class="skip" href="#main">Skip to content</a>
@@ -680,9 +681,9 @@ footer .legal { margin-top: 18px; padding-top: 18px; border-top: 1px solid var(-
     <span class="eyebrow">Watch</span>
     <h2 class="h-l" id="h-watch" style="margin-top:6px">See it end to end.</h2>
     <div class="films">
-      <a class="film" href="media/idea-20261113.mp4"><div class="pic"><img src="img/idea-20261113.webp" alt="" loading="lazy"><span class="play" aria-hidden="true"><svg width="22" height="22" viewBox="0 0 24 24"><path d="M8 5.5v13l11-6.5z" fill="#F7F3EC"/></svg></span></div><div class="meta"><b>The idea</b><span>Why we built it, and the three steps.</span><small>3:47 · opens video</small></div></a>
-      <a class="film" href="media/dating-calendar-20261113.mp4"><div class="pic"><img src="img/dating-calendar-20261113.webp" alt="" loading="lazy"><span class="play" aria-hidden="true"><svg width="22" height="22" viewBox="0 0 24 24"><path d="M8 5.5v13l11-6.5z" fill="#F7F3EC"/></svg></span></div><div class="meta"><b>Your dating week</b><span>A quick guide to the weekly dating calendar.</span><small>0:26 · opens video</small></div></a>
-      <a class="film" href="media/dating-app-20261113.mp4"><div class="pic"><img src="img/dating-app-20261113.webp" alt="" loading="lazy"><span class="play" aria-hidden="true"><svg width="22" height="22" viewBox="0 0 24 24"><path d="M8 5.5v13l11-6.5z" fill="#F7F3EC"/></svg></span></div><div class="meta"><b>How DhaShu works</b><span>From your profile to REACH, dates and what comes next.</span><small>1:55 · opens video</small></div></a>
+      <a class="film" href="media/idea-20261113.mp4"><div class="pic"><img src="img/idea-20261113.webp" alt="" loading="lazy"><span class="play" aria-hidden="true"><svg width="22" height="22" viewBox="0 0 24 24"><path d="M8 5.5v13l11-6.5z" fill="#F7F3EC"/></svg></span></div><div class="meta"><b>The idea</b><span>Why we built it, and the three steps.</span><small>3:47 · play here</small></div></a>
+      <a class="film" href="media/dating-calendar-20261113.mp4"><div class="pic"><img src="img/dating-calendar-20261113.webp" alt="" loading="lazy"><span class="play" aria-hidden="true"><svg width="22" height="22" viewBox="0 0 24 24"><path d="M8 5.5v13l11-6.5z" fill="#F7F3EC"/></svg></span></div><div class="meta"><b>Your dating week</b><span>A quick guide to the weekly dating calendar.</span><small>0:26 · play here</small></div></a>
+      <a class="film" href="media/dating-app-20261113.mp4"><div class="pic"><img src="img/dating-app-20261113.webp" alt="" loading="lazy"><span class="play" aria-hidden="true"><svg width="22" height="22" viewBox="0 0 24 24"><path d="M8 5.5v13l11-6.5z" fill="#F7F3EC"/></svg></span></div><div class="meta"><b>How DhaShu works</b><span>From your profile to REACH, dates and what comes next.</span><small>1:55 · play here</small></div></a>
     </div>
   </div>
 </section>
@@ -929,5 +930,11 @@ footer .legal { margin-top: 18px; padding-top: 18px; border-top: 1px solid var(-
 </script>
 
 <script src="assets/waitlist.js" defer></script>
+<dialog id="film-player" aria-labelledby="film-title">
+  <div id="film-shell"><div class="film-toolbar"><h2 id="film-title">DhaShu video</h2><div><button type="button" id="film-expand">Expand</button><button type="button" id="film-close" aria-label="Close video and return to page">Close ×</button></div></div>
+  <video id="film-video" controls playsinline preload="none"></video>
+  <p id="film-error" role="status" hidden>Unable to load the video. Please close it and try again.</p></div>
+</dialog>
+<script src="assets/video-player.js" defer></script>
 </body>
 </html>
